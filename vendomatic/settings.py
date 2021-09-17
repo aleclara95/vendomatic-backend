@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import environ
 import os
+import sys
 
 from pathlib import Path
 
@@ -34,6 +35,9 @@ DEBUG = env('DEBUG')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
+# Setup the apps folder
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
 ALLOWED_HOSTS = []
 
 
@@ -46,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
