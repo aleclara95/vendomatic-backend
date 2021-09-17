@@ -1,1 +1,1 @@
-# vendomatic-backend
+# vendomatic
