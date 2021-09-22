@@ -38,8 +38,6 @@ SECRET_KEY = env('SECRET_KEY')
 # Setup the apps folder
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -57,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -139,5 +138,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_COIN_AMOUNT_ID = '0.25'
+CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['*']
+
+DEFAULT_COIN_AMOUNT = '0.25'
 MAX_COINS_AMOUNT = 1

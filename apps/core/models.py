@@ -16,12 +16,14 @@ class CoinsAmount(Countable, models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=64)
-    verbose_name = models.CharField(max_length=64)
     volume = models.DecimalField(max_digits=3, decimal_places=2)
     price = models.DecimalField(max_digits=6, decimal_places=3)
 
     def __str__(self):
-        return f"{self.verbose_name} - {self.volume}L - ${self.price}"
+        return f"{self.name} - {self.volume}L - ${self.price}"
+
+
+MAX_MACHINE_ITEMS = 5
 
 
 class MachineItem(Countable, models.Model):
@@ -29,7 +31,7 @@ class MachineItem(Countable, models.Model):
     count = models.IntegerField(
         default=0,
         validators=[
-            MaxValueValidator(5),
+            MaxValueValidator(MAX_MACHINE_ITEMS),
             MinValueValidator(0)
         ]
     )

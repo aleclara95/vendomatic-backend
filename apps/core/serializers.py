@@ -10,7 +10,7 @@ class CoinsAmountSerializer(serializers.Serializer):
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['id', 'name', 'verbose_name', 'volume', 'price']
+        fields = ['id', 'name', 'volume', 'price']
 
 
 class MachineItemSerializer(serializers.ModelSerializer):
