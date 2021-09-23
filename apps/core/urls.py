@@ -9,7 +9,7 @@ app_name = "core"
 
 
 urlpatterns = [
-    path('', views.CoinView.as_view()),
+    path('', views.CoinView.as_view(), name='coin'),
 ]
 
 
